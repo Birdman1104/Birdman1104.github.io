@@ -8,6 +8,45 @@
   </head>
   <body>
     <a href="https://birdman1104.github.io/minesweeper-pixi">Minesweeper game with PixiJS</a>
+    <br />
     <a href="https://birdman1104.github.io/flappy-bird">Flappy bird game imitation with Phaser3</a>
+    <br />
+    <a href="https://www.facebook.com/arsen.m.birdman/">My FaceBook Account</a>
+    <br />
+    <a href="https://www.linkedin.com/in/arsenmazmanyan1104/">My Linkedin Account</a>
+    <br />
+    <a href="https://www.linkedin.com/in/arsenmazmanyan1104/">My Linkedin Account</a>
+    <br />
+    <a href="https://twitter.com/arsen_m_birdman">My Twitter Account</a>
+    <br />
+    <a href="https://github.com/Birdman1104">My Github Account</a>
+    <br />
+    <input type="button" value="Download My CV" onclick="DownloadFile('CV_Arsen_Mazmanyan.pdf')" />
+
+    <script type="text/javascript">
+      function DownloadFile(fileName) {
+        const url = "./" + fileName;
+        const req = new XMLHttpRequest();
+        req.open("GET", url, true);
+        req.responseType = "blob";
+        req.onload = function () {
+          const blob = new Blob([req.response], { type: "application/octetstream" });
+          const isIE = false || !!document.documentMode;
+          if (isIE) {
+            window.navigator.msSaveBlob(blob, fileName);
+          } else {
+            const url = window.URL || window.webkitURL;
+            link = url.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.setAttribute("download", fileName);
+            a.setAttribute("href", link);
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+          }
+        };
+        req.send();
+      }
+    </script>
   </body>
 </html>
